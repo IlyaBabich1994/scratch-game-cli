@@ -1,6 +1,6 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
+!scratch-game-cli/src/main1/**/target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
@@ -28,7 +28,7 @@ target/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
+!scratch-game-cli/src/main1/**/build/
 !**/src/test/**/build/
 
 ### VS Code ###

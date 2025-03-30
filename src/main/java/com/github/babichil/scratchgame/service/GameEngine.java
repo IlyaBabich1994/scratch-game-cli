@@ -30,7 +30,7 @@ public class GameEngine {
         GameResult finalResult = bonusApplier.applyBonus(matrix, rewardResult);
         finalResult = finalResult.withMatrix(matrix);
 
-        logger.info("Game finished. Total reward: {}, Bonus: {}", finalResult.getReward(), finalResult.getAppliedBonusSymbols());
+        logger.info("Game finished. Total reward: {}, Bonus: {}", finalResult.reward(), finalResult.appliedBonusSymbols());
         return finalResult;
     }
 }

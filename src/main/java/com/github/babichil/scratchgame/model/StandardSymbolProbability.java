@@ -12,9 +12,15 @@ public class StandardSymbolProbability {
     private int row;
     private Map<String, Integer> symbols;
 
+
     @JsonCreator
-    public StandardSymbolProbability(@JsonProperty("column") int column, @JsonProperty("row") int row) {
+    public StandardSymbolProbability(
+            @JsonProperty("column") int column,
+            @JsonProperty("row") int row,
+            @JsonProperty("symbols") Map<String, Integer> symbols
+    ) {
         this.column = column;
         this.row = row;
+        this.symbols = symbols;
     }
 }
