@@ -15,9 +15,9 @@ public class ClasspathConfigLoaderTest {
         GameConfig config = loader.loadConfig("test-config.json");
 
         assertNotNull(config);
-        assertEquals(3, config.getColumns());
-        assertEquals(3, config.getRows());
-        assertTrue(config.getSymbols().containsKey("A"));
+        assertEquals(3, config.columns());
+        assertEquals(3, config.rows());
+        assertTrue(config.symbols().containsKey("A"));
     }
 
     @Test

@@ -25,8 +25,14 @@ public class Symbol {
         this.impact = impact;
     }
 
-    public BonusImpact getImpactEnum() {
-        return BonusImpact.fromString(impact);
+    public boolean isStandard() {
+        return type == SymbolType.STANDARD;
     }
+
+    public boolean isBonus() {
+        return type == SymbolType.BONUS;
+    }
+
+
 }
 
