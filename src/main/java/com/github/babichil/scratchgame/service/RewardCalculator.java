@@ -41,7 +41,14 @@ public class RewardCalculator implements IRewardCalculator {
         List<String> applied = new ArrayList<>();
         Set<String> usedGroups = new HashSet<>();
 
-        for (var entry : config.winCombinations().entrySet()) {
+        List<Map.Entry<String, WinCombination>> sorted = config.winCombinations().entrySet().stream()
+                .sorted((a, b) -> Double.compare(
+                        b.getValue().getRewardMultiplier(),
+                        a.getValue().getRewardMultiplier()
+                ))
+                .toList();
+
+        for (var entry : sorted) {
             String name = entry.getKey();
             WinCombination comb = entry.getValue();
             String group = comb.getGroup();
@@ -50,7 +57,8 @@ public class RewardCalculator implements IRewardCalculator {
 
             boolean matched = switch (CombinationType.from(comb.getWhen())) {
                 case SAME_SYMBOLS -> count >= comb.getCount();
-                case LINEAR_SYMBOLS -> comb.getCoveredAreas() != null && matchesCoveredArea(matrix, symbolName, comb.getCoveredAreas());
+                case LINEAR_SYMBOLS -> comb.getCoveredAreas() != null &&
+                        matchesCoveredArea(matrix, symbolName, comb.getCoveredAreas());
             };
 
             if (matched) {
@@ -63,6 +71,7 @@ public class RewardCalculator implements IRewardCalculator {
 
         return new ResultWithApplied(multiplier, applied);
     }
+
 
     private boolean matchesCoveredArea(String[][] matrix, String symbol, List<List<String>> areas) {
         int rows = matrix.length, cols = matrix[0].length;

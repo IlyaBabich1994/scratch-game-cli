@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Slf4j
 public class MatrixGenerator implements IMatrixGenerator {
 
-    private static final double MAX_BONUS_COVERAGE = 0.25; // Business rule: no more than 25% bonus coverage
+    private static final double MAX_BONUS_COVERAGE = 0.25;
 
     private final GameConfig config;
     private final String fallbackSymbol;
@@ -28,10 +28,8 @@ public class MatrixGenerator implements IMatrixGenerator {
         int cols = config.columns();
         String[][] matrix = new String[rows][cols];
 
-        // 1. Выбираем места под бонусы
         Set<String> bonusPositions = selectBonusPositions(rows, cols);
 
-        // 2. Заполняем матрицу
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 String coord = r + ":" + c;

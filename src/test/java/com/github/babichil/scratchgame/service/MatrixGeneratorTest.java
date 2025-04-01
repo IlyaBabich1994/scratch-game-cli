@@ -79,7 +79,7 @@ class MatrixGeneratorTest {
                 .filter(s -> config.symbols().get(s).isBonus())
                 .count();
 
-        int maxBonus = (int) Math.ceil(3 * 3 * 0.25); // MAX_BONUS_COVERAGE
+        int maxBonus = (int) Math.ceil(3 * 3 * 0.25);
         assertTrue(bonusCount <= maxBonus, "Too many bonus symbols: " + bonusCount);
     }
 

@@ -5,7 +5,6 @@ import com.github.babichil.scratchgame.bonus.BonusStrategyFactory;
 import com.github.babichil.scratchgame.model.GameConfig;
 import com.github.babichil.scratchgame.model.GameResult;
 import com.github.babichil.scratchgame.model.Symbol;
-import com.github.babichil.scratchgame.model.SymbolType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,6 +33,10 @@ public class BonusApplier implements IBonusApplier {
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[0].length; c++) {
                 String name = matrix[r][c];
+                if (name == null) {
+                    log.warn("Matrix cell at [{}][{}] is null, skipping", r, c);
+                    continue;
+                }
                 Symbol symbol = symbolMap.get(name);
                 if (symbol != null && symbol.isBonus()) {
                     BonusStrategy strategy = BonusStrategyFactory.getStrategy(symbol.getImpact());
