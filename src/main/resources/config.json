@@ -1,6 +1,6 @@
 {
-  "columns": 4,
-  "rows": 4,
+  "columns": 3,
+  "rows": 3,
   "symbols": {
     "A": {
       "reward_multiplier": 5,
@@ -32,7 +32,7 @@
       "impact": "multiply_reward"
     },
     "5x": {
-      "reward_multiplier": 5,
+      "reward_multiplier": 500000,
       "type": "bonus",
       "impact": "multiply_reward"
     },

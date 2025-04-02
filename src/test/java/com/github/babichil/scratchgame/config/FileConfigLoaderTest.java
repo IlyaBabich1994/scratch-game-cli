@@ -7,8 +7,8 @@ import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ClasspathConfigLoaderTest {
-    private final ConfigLoader loader = new ClasspathConfigLoader();
+public class FileConfigLoaderTest {
+    private final ConfigLoader loader = new FileConfigLoader();
 
     @Test
     void shouldLoadConfigSuccessfully() {

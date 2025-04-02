@@ -14,11 +14,12 @@ public enum BonusImpact {
         this.value = value;
     }
 
-    public static BonusImpact fromString(String value) {
-        for (BonusImpact impact : values()) {
-            if (impact.value.equalsIgnoreCase(value)) return impact;
+    public static BonusImpact fromString(String impact) {
+        for (BonusImpact value : values()) {
+            if (value.name().equalsIgnoreCase(impact)) {
+                return value;
+            }
         }
-        throw new IllegalArgumentException("Unknown bonus impact: " + value);
+        return MISS;
     }
 }
-
