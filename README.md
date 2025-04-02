@@ -1,4 +1,4 @@
-# 🎰 Scratch Game CLI
+# Scratch Game CLI
 
 A lightweight, fully testable CLI-based scratch game written in **pure Java** (JDK 17+).  
 No Spring, no frameworks — just Java, Jackson, SLF4J, and solid testing.
@@ -6,7 +6,7 @@ I built this as a take-home challenge to show I can write clean, maintainable co
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Build the Executable JAR
 
@@ -30,7 +30,7 @@ java -jar target/scratch-game-cli-1.0-SNAPSHOT-jar-with-dependencies.jar \
 
 ---
 
-## 📄 Input Configuration
+## Input Configuration
 
 The game is driven by a JSON config that describes:
 
@@ -41,38 +41,6 @@ The game is driven by a JSON config that describes:
 
 🔧 See `src/main/resources/config.json` for an example.
 
----
-
-## 🧠 Example Playthrough
-
-### Input Matrix:
-```json
-[
-  [ "F", "F", "F" ],
-  [ "E", "E", "C" ],
-  [ "+1000", "E", "10x" ]
-]
-```
-
-### Config:
-- F = 1×
-- E = 1.2×
-- `same_symbol_3_times` and `same_symbols_horizontally` give x1 and x2 respectively
-- Bonus `+1000` adds 1000
-- Bonus `10x` multiplies result by 10
-
-### Reward Calculation:
-
-```
-F: 100 * 1 (F) * 1 (3 times) * 2 (horizontal) = 200
-E: 100 * 1.2 * 1 (3 times) = 120
-Total before bonus: 320
-With 10x and +1000: (320 * 10) + 1000 = 4200
-```
-
-🎉 Final reward: `4200`
-
----
 
 ## 📦 Output Format
 
